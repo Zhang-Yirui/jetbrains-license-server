@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class AliveController {
     @GetMapping()
     public Map<String, Object> alive() {
-        log.info("存活检查");
         Map<String, Object> response = new HashMap<>();
-        LocalDateTime now = LocalDateTime.now();
+        String time = LocalDateTime.now().toString();
+        log.info("检查时间: {}", time);
         response.put("status", "alive");
-        response.put("time", now.toString());
+        response.put("time", time);
         return response;
     }
 }
