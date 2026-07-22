@@ -2,7 +2,7 @@ spring:
   application:
     name: BlueSky-Jetbrains-LicenseServer-Help
 xbase64:
-  domain: BlueSky.cc
+  domain: jetbrains.license.bd3qif.com
 server:
   port: 10768
   # 插件信息获取配置

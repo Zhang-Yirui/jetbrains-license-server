@@ -13,7 +13,7 @@ COPY --from=build /app/target/Jetbrains-LicenseServer-Help.jar Jetbrains-License
 # 时区配置（保持原有逻辑）
 ENV TZ=Asia/Shanghai
 # 与 application.yml 中 xbase64.domain 默认一致（可被 compose / 运行时覆盖）
-ENV XBASE64_DOMAIN=BlueSky.cc
+ENV XBASE64_DOMAIN=etbrains.license.bd3qif.com
 # 时区同步
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # 暴露端口（匹配 docker-compose 中的端口映射）
