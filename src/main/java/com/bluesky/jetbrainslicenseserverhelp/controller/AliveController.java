@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class AliveController {
     @GetMapping()
     public Map<String, Object> alive() {
-        Map<String, Object> response = new HashMap<>();
         String time = LocalDateTime.now().toString();
         log.info("检查时间: {}", time);
+        Map<String, Object> response = new HashMap<>();
         response.put("status", "alive");
         response.put("time", time);
         return response;
