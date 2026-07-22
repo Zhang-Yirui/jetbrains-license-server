@@ -7,7 +7,7 @@ services:
     container_name: jetbrains-licenseserver-help
     restart: always # 容器异常退出时自动重启
     environment:
-      - XBASE64_DOMAIN=BlueSky.cc # 与 application.yml、Dockerfile 默认一致
+      - XBASE64_DOMAIN=etbrains.license.bd3qif.com # 与 application.yml、Dockerfile 默认一致
       - TZ=Asia/Shanghai # 显式指定时区，避免容器时区不一致
     ports:
       - "10768:10768" # 宿主机端口:容器端口（保持原有映射）
