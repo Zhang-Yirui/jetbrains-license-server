@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/alive")
 public class AliveController {
     @GetMapping()
-    public Map<String, String> alive() {
+    public Map<String, Object> alive() {
         log.info("存活检查");
-        Map<String, String> response = new HashMap<>();
+        Map<String, Object> response = new HashMap<>();
         response.put("status", "alive");
         return response;
     }
