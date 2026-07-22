@@ -28,6 +28,9 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
 
+      - name: Lowercase owner
+        run: echo "owner=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v7
         with:
@@ -35,11 +38,10 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ghcr.io/${{ github.repository_owner }}/jetbrains-license-server:latest
-            ghcr.io/${{ github.repository_owner }}/jetbrains-license-server:latest
-            ghcr.io/${{ github.repository_owner }}/jetbrains-license-server:${{ github.sha }}
-            ghcr.io/${{ github.repository_owner }}/jetbrains-license-server:${{ github.ref_name }}
-            ghcr.io/${{ github.repository_owner }}/jetbrains-license-server:build-${{ github.run_number }}
+            ghcr.io/${{ env.owner }}/jetbrains-license-server:latest
+            ghcr.io/${{ env.owner }}/jetbrains-license-server:${{ github.sha }}
+            ghcr.io/${{ env.owner }}/jetbrains-license-server:${{ github.ref_name }}
+            ghcr.io/${{ env.owner }}/jetbrains-license-server:build-${{ github.run_number }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
             org.opencontainers.image.description=HTTP Server
