@@ -1,5 +1,6 @@
 package com.bluesky.jetbrainslicenseserverhelp.controller;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +16,9 @@ public class AliveController {
     public Map<String, Object> alive() {
         log.info("存活检查");
         Map<String, Object> response = new HashMap<>();
+        LocalDateTime now = LocalDateTime.now();
         response.put("status", "alive");
+        response.put("time", now.toString());
         return response;
     }
 }

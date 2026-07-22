@@ -5,6 +5,7 @@ on:
     branches: [ main ]
     paths:
       - 'Dockerfile'
+      - '*.java'
   workflow_dispatch:
 
 jobs:
