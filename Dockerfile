@@ -25,7 +25,7 @@ RUN addgroup --system app && adduser --system app --group
 WORKDIR /app
 RUN chown app:app /app
 USER app
-# 暴露端口(匹配 docker-compose 中的端口映射)
+# 暴露端口
 EXPOSE 10768
 ENTRYPOINT ["java", "-jar", \
   "-XX:+UseContainerSupport", \
