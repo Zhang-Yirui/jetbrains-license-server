@@ -18,5 +18,5 @@ ENV XBASE64_DOMAIN=jetbrains.license.bd3qif.com
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # 暴露端口（匹配 docker-compose 中的端口映射）
 EXPOSE 10768
-# 启动命令（保持原有逻辑）
-ENTRYPOINT ["java", "-jar", "Jetbrains-LicenseServer-Help.jar"]
+# 启动命令（保持原有逻辑）"",
+ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-XX:MaxRAMPercentage=75", "-XX:MinRAMPercentage=50", "-jar", "Jetbrains-LicenseServer-Help.jar"]
