@@ -9,7 +9,7 @@ RUN mvn clean package -U
 FROM eclipse-temurin:17-jre
 WORKDIR /app
 # 从构建阶段复制打包好的 JAR 包
-COPY --from=build /app/target/Jetbrains-LicenseServer-Help.jar Jetbrains-LicenseServer-Help.jar
+COPY --from=build /app/target/JetBrains-License-Server-Helper.jar JetBrains-License-Server-Helper.jar
 # 时区配置（保持原有逻辑）
 ENV TZ=Asia/Shanghai
 # 与 application.yml 中 xbase64.domain 默认一致（可被 compose / 运行时覆盖）
@@ -19,4 +19,4 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # 暴露端口（匹配 docker-compose 中的端口映射）
 EXPOSE 10768
 # 启动命令（保持原有逻辑）"",
-ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-XX:MaxRAMPercentage=75", "-XX:MinRAMPercentage=50", "-jar", "Jetbrains-LicenseServer-Help.jar"]
+ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-XX:MaxRAMPercentage=75", "-XX:MinRAMPercentage=50", "-jar", "JetBrains-License-Server-Helper.jar"]

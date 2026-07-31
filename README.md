@@ -1,4 +1,4 @@
-# JetBrains License Server Help
+# JetBrains License Server Helper
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Java](https://img.shields.io/badge/Java-17-blue.svg)](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
@@ -82,16 +82,16 @@ docker run -d -p 10768:10768 --name license-server-help your-image-name
 
 ```bash
 # 克隆仓库
-git clone https://github.com/Blduu/Jetbrains-LicenseServer-Help.git
+git clone https://github.com/Blduu/Jetbrains-License-Server-Helper.git
 
 # 进入项目目录
-cd Jetbrains-LicenseServer-Help
+cd JetBrains-License-Server-Helper
 
 # 编译项目
 mvn clean package -DskipTests
 
 # 运行项目
-java -jar target/Jetbrains-LicenseServer-Help.jar
+java -jar target/JetBrains-License-Server-Helper.jar
 ```
 
 ## 📖 使用说明

@@ -327,9 +327,9 @@ You can make more detailed configurations by modifying the `src/main/resources/a
 ```yaml
 spring:
   application:
-    name: BlueSky-Jetbrains-LicenseServer-Help
+    name: Jetbrains-License-Server-Helper
 xbase64:
-  domain: BlueSky.cc
+  domain: jetbrains.license.bd3qif.com
 server:
   port: 10768
   tomcat:
@@ -345,7 +345,7 @@ server:
 
 logging:
   level:
-    com.bluesky: INFO
+    com.bd3qif: INFO
     org.springframework: WARN
 ```
 

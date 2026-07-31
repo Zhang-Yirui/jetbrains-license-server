@@ -13,12 +13,12 @@
     </parent>
 
     <!-- 项目基本信息 -->
-    <groupId>com.bluesky</groupId>
-    <artifactId>Jetbrains-LicenseServer-Help</artifactId>
+    <groupId>com.bd3qif</groupId>
+    <artifactId>JetBrains-License-Server-Helper</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Jetbrains-LicenseServer-Help</name>
-    <description>Jetbrains-LicenseServer-Help</description>
+    <name>JetBrains-License-Server-Helper</name>
+    <description>JetBrains-License-Server-Helper</description>
 
     <!-- 版本属性管理（统一维护，便于升级） -->
     <properties>
@@ -28,8 +28,8 @@
 
         <!-- 核心依赖版本 -->
         <lombok.version>1.18.34</lombok.version>
-        <hutool.version>5.8.28</hutool.version>
-        <bouncycastle.version>1.78.1</bouncycastle.version>
+        <hutool.version>5.8.40</hutool.version>
+        <bouncycastle.version>1.84</bouncycastle.version>
         <jansi.version>2.4.0</jansi.version>
         <!-- JAXB 版本（适配Java 17/Spring Boot 4.0） -->
         <jakarta-jaxb-api.version>4.0.1</jakarta-jaxb-api.version>
@@ -121,7 +121,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.bluesky.jetbrainslicenseserverhelp.JetbrainsLicenseServerHelpApplication</mainClass>
+                    <mainClass>com.bd3qif.LicenseServer.JetBrainsLicenseServerHelperApplication</mainClass>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>

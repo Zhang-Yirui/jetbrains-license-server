@@ -137,7 +137,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # 复制 JAR 文件到工作目录
-COPY target/Jetbrains-LicenseServer-Help-<version>.jar app.jar
+COPY target/Jetbrains-License-Server-Helper-<version>.jar app.jar
 
 # 暴露端口
 EXPOSE 10768
@@ -166,7 +166,7 @@ docker run -d -p 10768:10768 --name license-server jetbrains-license-server-help
 docker run -d -p 10768:10768 \
   -v ./external:/app/external \
   -v ./application.yml:/app/application.yml \
-  --name license-server jetbrains-license-server-help
+  --name license-server jetbrains-license-server-helper
 ```
 
 ### 4.3 使用 Docker Compose 部署
@@ -189,7 +189,7 @@ services:
     restart: always
     environment:
       - SERVER_PORT=10768
-      - SPRING_APPLICATION_NAME=BlueSky-Jetbrains-LicenseServer-Help
+      - SPRING_APPLICATION_NAME=JetBrains-License-Server-Helper
 ```
 
 #### 4.3.2 构建并启动服务
@@ -421,7 +421,7 @@ jobs:
 3. 确保 JAR 文件路径正确
 4. 尝试使用 `--no-cache` 参数重新构建：
    ```bash
-   docker build --no-cache -t jetbrains-license-server-help .
+   docker build --no-cache -t jetbrains-license-server-helper .
    ```
 
 ### 8.4 服务无法访问

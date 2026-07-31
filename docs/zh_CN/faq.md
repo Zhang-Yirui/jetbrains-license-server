@@ -70,7 +70,7 @@ docker build -t jetbrains-license-server-help .
 4. 运行 Docker 容器：
 
 ```bash
-docker run -d -p 10768:10768 --name license-server-help jetbrains-license-server-help
+docker run -d -p 10768:10768 --name license-server-helper jetbrains-license-server-helper
 ```
 
 ### 2.2 如何配置防火墙？

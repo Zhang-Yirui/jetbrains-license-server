@@ -154,9 +154,9 @@ The main configuration file for the project is `src/main/resources/application.y
 ```yaml
 spring:
   application:
-    name: BlueSky-Jetbrains-LicenseServer-Help
+    name: Jetbrains-License-Server-Help
 xbase64:
-  domain: BlueSky.cc
+  domain: jetbrains.license.bd3qif.com
 server:
   port: 10768
   # Plugin information retrieval configuration
@@ -175,20 +175,20 @@ server:
 
 #### 3.2.1 Basic Configuration
 
-| Configuration Item | Default Value | Description |
-|-------------------|---------------|-------------|
-| `spring.application.name` | BlueSky-Jetbrains-LicenseServer-Help | Application name |
-| `xbase64.domain` | BlueSky.cc | xbase64 domain configuration |
-| `server.port` | 10768 | Server port |
+| Configuration Item        | Default Value                   | Description                  |
+|---------------------------|---------------------------------|------------------------------|
+| `spring.application.name` | Jetbrains-License-Server-Helper | Application name             |
+| `xbase64.domain`          | jetbrains.license.bd3qif.com    | xbase64 domain configuration |
+| `server.port`             | 10768                           | Server port                  |
 
 #### 3.2.2 Plugin Configuration
 
-| Configuration Item | Default Value | Description |
-|-------------------|---------------|-------------|
-| `server.plugins.refresh-enabled` | true | Whether to enable plugin information scheduled refresh task |
-| `server.plugins.page-size` | 20 | Number of plugins to retrieve per request, recommended not to exceed 20 |
-| `server.plugins.thread-count` | 20 | Number of concurrent threads for parallel requests to different plugin pages |
-| `server.plugins.timeout` | 30000 | Request timeout in milliseconds |
+| Configuration Item               | Default Value | Description                                                                  |
+|----------------------------------|---------------|------------------------------------------------------------------------------|
+| `server.plugins.refresh-enabled` | true          | Whether to enable plugin information scheduled refresh task                  |
+| `server.plugins.page-size`       | 20            | Number of plugins to retrieve per request, recommended not to exceed 20      |
+| `server.plugins.thread-count`    | 20            | Number of concurrent threads for parallel requests to different plugin pages |
+| `server.plugins.timeout`         | 30000         | Request timeout in milliseconds                                              |
 
 ### 3.3 Extended Configuration
 
@@ -323,9 +323,9 @@ The project uses Spring Boot's default logging framework (Logback), and the logg
 ```yaml
 spring:
   application:
-    name: BlueSky-Jetbrains-LicenseServer-Help
+    name: Jetbrains-License-Server-Helper
 xbase64:
-  domain: BlueSky.cc
+  domain: jetbrains.license.bd3qif.com
 server:
   port: 10768
   plugins:
@@ -357,9 +357,9 @@ server:
 ```yaml
 spring:
   application:
-    name: BlueSky-Jetbrains-LicenseServer-Help
+    name: Jetbrains-License-Server-Help
 xbase64:
-  domain: BlueSky.cc
+  domain: jetbrains.license.bd3qif.com
 server:
   port: 10768
   plugins:

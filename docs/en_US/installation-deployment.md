@@ -149,13 +149,13 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 #### 4.2.2 Build Docker Image
 
 ```bash
-docker build -t jetbrains-license-server-help .
+docker build -t jetbrains-license-server-helper .
 ```
 
 #### 4.2.3 Run Docker Container
 
 ```bash
-docker run -d -p 10768:10768 --name license-server jetbrains-license-server-help
+docker run -d -p 10768:10768 --name license-server jetbrains-license-server-helper
 ```
 
 #### 4.2.4 Mount External Configuration
@@ -166,7 +166,7 @@ If you need to persist data or use external configuration files, you can mount v
 docker run -d -p 10768:10768 \
   -v ./external:/app/external \
   -v ./application.yml:/app/application.yml \
-  --name license-server jetbrains-license-server-help
+  --name license-server jetbrains-license-server-helper
 ```
 
 ### 4.3 Deploy with Docker Compose
@@ -189,7 +189,7 @@ services:
     restart: always
     environment:
       - SERVER_PORT=10768
-      - SPRING_APPLICATION_NAME=BlueSky-Jetbrains-LicenseServer-Help
+      - SPRING_APPLICATION_NAME=Jetbrains-License-Server-Helper
 ```
 
 #### 4.3.2 Build and Start Service
@@ -421,7 +421,7 @@ jobs:
 3. Ensure the JAR file path is correct
 4. Try rebuilding with `--no-cache` parameter:
    ```bash
-   docker build --no-cache -t jetbrains-license-server-help .
+   docker build --no-cache -t jetbrains-license-server-helper .
    ```
 
 ### 8.4 Service Unreachable

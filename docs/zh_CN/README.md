@@ -162,13 +162,13 @@ JetBrains License Server Help是一个基于Spring Boot开发的许可证服务�
 1. **拉取Docker镜像**
 
    ```bash
-   docker pull your-username/jetbrains-license-server-help:latest
+   docker pull your-username/jetbrains-license-server-helper:latest
    ```
 
 2. **运行Docker容器**
 
    ```bash
-   docker run -d -p 10768:10768 --name license-server-help your-username/jetbrains-license-server-help:latest
+   docker run -d -p 10768:10768 --name license-server-helper your-username/jetbrains-license-server-helper:latest
    ```
 
 3. **访问管理界面**

@@ -1,6 +1,6 @@
 # Frequently Asked Questions (FAQ)
 
-This document collects common questions and answers about using JetBrains License Server Help, helping you quickly solve problems you encounter.
+This document collects common questions and answers about using JetBrains License Server Helper, helping you quickly solve problems you encounter.
 
 ## 1. Installation and Configuration
 
@@ -64,13 +64,13 @@ server:
 3. Build the Docker image:
 
 ```bash
-docker build -t jetbrains-license-server-help .
+docker build -t jetbrains-license-server-helper .
 ```
 
 4. Run the Docker container:
 
 ```bash
-docker run -d -p 10768:10768 --name license-server-help jetbrains-license-server-help
+docker run -d -p 10768:10768 --name license-server-helper jetbrains-license-server-helper
 ```
 
 ### 2.2 How to configure firewall?
