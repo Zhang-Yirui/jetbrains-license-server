@@ -1,6 +1,8 @@
 package com.bd3qif.LicenseServer.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,28 +19,21 @@ import java.time.LocalDateTime;
 public class AliveController {
     @GetMapping()
     public ResponseEntity<Void> alive(
-        @RequestParam(value = "ts", required = false) LocalDateTime ts,
-        @RequestParam(value = "from", required = false) String from) {
-        log.debug("alive 入参校验: ts: {}, from: {}", ts, from);
-        LocalDateTime now = LocalDateTime.now();
-        String nowString = now.toString();
-        if (ObjectUtils.isEmpty(ts) || ObjectUtils.isEmpty(from)) {
-            log.error("入参不能有空值: ts: {}, from: {}", ts, from);
-            return ResponseEntity.badRequest()
-                .header("Time", nowString)
-                .build();
-        }
-        Duration diff = Duration.between(ts, now);
-        if (diff.abs().toMillis() > 5 * 1000) {
-            log.error("ts 超限: now:{}, ts:{}, diff: {}", now, ts, diff.toMillis());
-            return ResponseEntity.badRequest()
-                .header("Time", nowString)
-                .build();
-        }
+        @RequestParam(value = "verify_time", required = false, defaultValue = "true") Boolean verifyTime,
+        @RequestParam(value = "ts", required = false, defaultValue = "1970-01-01T00:00:00") LocalDateTime ts,
+        @RequestParam(value = "from", required = false, defaultValue = "unknown") String from) {
+        log.info("alive 入参: skip_verify: {}, ts: {}, from: {}", verifyTime, ts, from);
 
-        log.debug("now: {}, ts: {}, diff: {}, from: {}", nowString, ts, diff.toMillis(), from);
-        return ResponseEntity.noContent()
-            .header("Time", nowString)
-            .build();
+        HttpStatusCode status = HttpStatus.NO_CONTENT;
+        if (Boolean.TRUE.equals(verifyTime)) {
+            LocalDateTime now = LocalDateTime.now();
+            Duration diff = Duration.between(ts, now);
+            if (diff.abs().toMillis() > 5 * 1000) {
+                log.error("ts 超限: now:{}, ts:{}, diff: {}", now, ts, diff.toMillis());
+                status = HttpStatus.BAD_REQUEST;
+            }
+            log.info("now: {}, ts: {}, diff: {}, from: {}", now, ts, diff.toMillis(), from);
+        }
+        return ResponseEntity.status(status).header("Checker", from).build();
     }
 }
