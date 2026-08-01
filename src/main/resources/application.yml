@@ -2,7 +2,7 @@ spring:
   application:
     name: JetBrains-License-Server-Helper
 xbase64:
-  domain: jetbrains.license.bd3qif.com
+  domain: jetbrains_license.bd3qif.com
 server:
   port: 10768
 help:

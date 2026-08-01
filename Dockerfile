@@ -15,16 +15,11 @@ WORKDIR /app
 # 从构建阶段复制打包好的 JAR 包
 COPY --from=build /app/target/JetBrains-License-Server-Helper.jar JetBrains-License-Server-Helper.jar
 # 与 application.yml 中 xbase64.domain 默认一致(可被 compose / 运行时覆盖)
-ENV XBASE64_DOMAIN=jetbrains.license.bd3qif.com
+ENV XBASE64_DOMAIN=jetbrains_license.bd3qif.com
 # 时区配置
 ENV TZ=Asia/Shanghai
 # 时区同步
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
-# 非 root 用户
-RUN addgroup --system app && adduser --system app --group
-WORKDIR /app
-RUN chown app:app /app
-USER app
 # 暴露端口
 EXPOSE 10768
 ENTRYPOINT ["java", "-jar", \
