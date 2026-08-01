@@ -102,7 +102,7 @@ public class PluginCacheService {
      * 合并新数据到现有缓存
      *
      * @param existingCache 现有缓存数据
-     * @param newData 新的插件数据
+     * @param newData       新的插件数据
      * @return 合并后的数据列表
      */
     public static List<PluginCache> mergeCache(List<PluginCache> existingCache, List<PluginCache> newData) {

@@ -261,8 +261,7 @@ const App = {
       this.isGenerating = true
 
       try {
-        const result = await ApiService.generateLicense(this.selectedItem.productCode, this.config.licenseName, this.config.assigneeName, this.licenseConfig.expiryDate)
-        this.generatedLicense = result
+        this.generatedLicense = await ApiService.generateLicense(this.selectedItem.productCode, this.config.licenseName, this.config.assigneeName, this.licenseConfig.expiryDate)
         this.showLicenseModal = false
         this.showResultModal = true
       } catch (error) {
@@ -309,7 +308,8 @@ const App = {
           'dm': 'https://resources.jetbrains.com/storage/logos/web/dotmemory/dotmemory.svg',
           'rr': 'https://resources.jetbrains.com/storage/logos/web/rustrover/rustrover.svg',
           'qa': 'https://resources.jetbrains.com/storage/logos/web/aqua/aqua.svg',
-          'al': 'https://resources.jetbrains.com/storage/logos/web/toolbox/toolbox.svg'
+          'al': 'https://resources.jetbrains.com/storage/logos/web/toolbox/toolbox.svg',
+          'rs': 'https://resources.jetbrains.com/storage/logos/web/resharper/resharper.svg'
         };
 
         return iconMap[iconName] || '/images/plugin.svg';

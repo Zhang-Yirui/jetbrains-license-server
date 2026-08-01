@@ -110,8 +110,8 @@ public class PluginProcessService {
                 .setProductCode(productCode)
                 .setName(plugin.getName())
                 .setPricingModel(plugin.getPricingModel())
+                .setDescription(plugin.getPreview())
                 .setIcon(buildIconUrl(plugin.getIcon()));
-
         } catch (Exception e) {
             log.error("转换插件信息失败: {} (ID: {})", plugin.getName(), plugin.getId(), e);
             return null;

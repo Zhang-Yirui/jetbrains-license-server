@@ -175,5 +175,8 @@ public class ProductsContextHolder {
 
         /** CSS图标类名，用于前端界面显示产品图标 */
         private String iconClass;
+
+        /** 产品描述 */
+        private String description;
     }
 }

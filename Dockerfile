@@ -30,6 +30,7 @@ EXPOSE 10768
 ENTRYPOINT ["java", "-jar", \
   "-XX:+UseContainerSupport", \
   "-XX:MaxRAMPercentage=75", \
+  "-XX:InitialRAMPercentage=50",\
   "-XX:+HeapDumpOnOutOfMemoryError", \
   "-XX:+ExitOnOutOfMemoryError", \
   "JetBrains-License-Server-Helper.jar"]

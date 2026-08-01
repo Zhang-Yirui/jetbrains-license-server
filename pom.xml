@@ -102,7 +102,7 @@
 
     <!-- 构建配置 -->
     <build>
-        <finalName>${artifactId}</finalName>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <!-- Maven编译插件（适配Java 17） -->
             <plugin>

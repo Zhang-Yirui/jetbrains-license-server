@@ -28,6 +28,9 @@ public class PluginCache {
     /** 插件图标URL */
     private String icon;
 
+    /** 插件描述 */
+    private String description;
+
     @Override
     public final boolean equals(Object o) {
         if (this == o) {

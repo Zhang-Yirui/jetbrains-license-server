@@ -119,7 +119,7 @@ public class PluginsContextHolder {
                 return PluginApiService.fetchAllPlugins(executorService);
             }, executorService)
             .thenApply(pluginList -> {
-                // 2. 过滤插件（排除已存在和免费的）
+                // 2. 过滤插件(排除已存在和免费的)
                 return PluginProcessService.filterPlugins(pluginList, pluginCacheList);
             })
             .thenApply(PluginProcessService::convertToCache) // 3. 转换为缓存对象

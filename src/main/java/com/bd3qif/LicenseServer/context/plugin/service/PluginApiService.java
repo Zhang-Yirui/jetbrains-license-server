@@ -2,6 +2,7 @@ package com.bd3qif.LicenseServer.context.plugin.service;
 
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.text.CharSequenceUtil;
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
 import com.bd3qif.LicenseServer.context.plugin.PluginConfig;
@@ -49,7 +50,7 @@ public class PluginApiService {
      */
     public static PluginList fetchAllPlugins(ExecutorService executorService) {
         log.info("开始多线程获取插件列表，分页大小: {}, 线程数: {}",
-                config.getPageSize(), config.getThreadCount());
+            config.getPageSize(), config.getThreadCount());
 
         // 首先获取第一页，确定总数
         PluginList firstPage = fetchPluginPage(0, config.getPageSize());
@@ -58,7 +59,7 @@ public class PluginApiService {
         }
 
         long totalPlugins = firstPage.getTotal();
-        int totalPages = (int) ((totalPlugins + config.getPageSize() - 1) / config.getPageSize());
+        int totalPages = (int)((totalPlugins + config.getPageSize() - 1) / config.getPageSize());
 
         log.info("插件总数: {}, 预计需要 {} 页", totalPlugins, totalPages);
 
@@ -88,7 +89,7 @@ public class PluginApiService {
         // 返回合并结果
         PluginList result = new PluginList();
         result.setPlugins(allPlugins);
-        result.setTotal((long) allPlugins.size());
+        result.setTotal((long)allPlugins.size());
 
         return result;
     }
@@ -96,7 +97,7 @@ public class PluginApiService {
     /**
      * 获取指定页面的插件信息
      *
-     * @param offset 偏移量
+     * @param offset   偏移量
      * @param pageSize 页面大小
      * @return 插件列表页面数据
      */
@@ -150,11 +151,13 @@ public class PluginApiService {
                     }
 
                     PluginInfo pluginInfo = JSONUtil.toBean(IoUtil.readUtf8(is), PluginInfo.class);
-                    log.debug("已抓取 => ID = [{}], 名称 = [{}], Code = [{}]",
+                    if (ObjectUtil.isNotEmpty(pluginInfo) && ObjectUtil.isNotEmpty(pluginInfo.getPurchaseInfo())) {
+                        log.debug("已抓取 => ID = [{}], 名称 = [{}], Code = [{}]",
                             pluginInfo.getId(), plugin.getName(),
                             pluginInfo.getPurchaseInfo().getProductCode());
-                    return pluginInfo;
-
+                        return pluginInfo;
+                    }
+                    return null;
                 } catch (IOException e) {
                     throw new IllegalArgumentException(
                         CharSequenceUtil.format("{} 请求IO读取失败!", url), e);
@@ -165,13 +168,13 @@ public class PluginApiService {
     /**
      * 收集并发请求的结果
      *
-     * @param futures 异步任务列表
+     * @param futures    异步任务列表
      * @param allPlugins 结果收集器
      * @param totalPages 总页数
      */
     private static void collectResults(List<CompletableFuture<PluginList>> futures,
-                                     List<PluginList.Plugin> allPlugins,
-                                     int totalPages) {
+                                       List<PluginList.Plugin> allPlugins,
+                                       int totalPages) {
         try {
             CompletableFuture<Void> allOf = CompletableFuture.allOf(
                 futures.toArray(new CompletableFuture[0])
@@ -193,7 +196,7 @@ public class PluginApiService {
             }
 
             log.info("多线程获取完成，成功获取 {} 页，总插件数: {}",
-                    successCount.get(), allPlugins.size());
+                successCount.get(), allPlugins.size());
 
         } catch (TimeoutException e) {
             log.error("获取插件超时，已获取部分结果，插件数: {}", allPlugins.size());

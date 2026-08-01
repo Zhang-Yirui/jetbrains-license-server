@@ -2,76 +2,91 @@
   {
     "name": "All Jetbrains's Product Or Plugin",
     "productCode": "",
-    "iconClass": "icon-al"
+    "iconClass": "icon-al",
+    "description": "For all products"
   },
   {
     "name": "IntelliJ IDEA",
     "productCode": "II,PCWMP,PSI",
-    "iconClass": "icon-ii"
+    "iconClass": "icon-ii",
+    "description": "The Leading IDE for Professional Development in Java and Kotlin"
   },
   {
     "name": "PhpStorm",
     "productCode": "PS,PCWMP,PSI",
-    "iconClass": "icon-ps"
+    "iconClass": "icon-ps",
+    "description": "The PHP IDE"
   },
   {
     "name": "AppCode",
     "productCode": "AC,PCWMP,PSI",
-    "iconClass": "icon-ac"
+    "iconClass": "icon-ac",
+    "description": ""
   },
   {
     "name": "DataGrip",
     "productCode": "DB,PSI,PDB",
-    "iconClass": "icon-db"
+    "iconClass": "icon-db",
+    "description": "Many databases, one tool"
   },
   {
     "name": "RubyMine",
     "productCode": "RM,PCWMP,PSI",
-    "iconClass": "icon-rm"
+    "iconClass": "icon-rm",
+    "description": "The most intelligent Ruby IDE"
   },
   {
     "name": "WebStorm",
     "productCode": "WS,PCWMP,PSI",
-    "iconClass": "icon-ws"
+    "iconClass": "icon-ws",
+    "description": "The JavaScript and TypeScript IDE"
   },
   {
     "name": "Rider",
     "productCode": "RD,PDB,PSI,PCWMP",
-    "iconClass": "icon-rd"
+    "iconClass": "icon-rd",
+    "description": "Cross-platform .NET and game IDE"
   },
   {
     "name": "CLion",
     "productCode": "CL,PSI,PCWMP",
-    "iconClass": "icon-cl"
+    "iconClass": "icon-cl",
+    "description": "A smart cross-platform IDE for C and C++"
   },
   {
     "name": "PyCharm",
     "productCode": "PC,PSI,PCWMP",
-    "iconClass": "icon-pc"
+    "iconClass": "icon-pc",
+    "description": "The only Python IDE you need"
   },
   {
     "name": "GoLand",
     "productCode": "GO,PSI,PCWMP",
-    "iconClass": "icon-go"
+    "iconClass": "icon-go",
+    "description": "The IDE for professional development in Go"
   },
   {
     "name": "DataSpell",
     "productCode": "DS,PSI,PDB,PCWMP",
-    "iconClass": "icon-ds"
+    "iconClass": "icon-ds",
+    "description": ""
   },
   {
     "name": "dotMemory",
     "productCode": "DM",
-    "iconClass": "icon-dm"
+    "iconClass": "icon-dm",
+    "description": ".NET memory profiler"
   },
   {
     "name": "Aqua",
     "productCode": "QA,PSI,PCWMP",
-    "iconClass": "icon-qa"
+    "iconClass": "icon-qa",
+    "description": ""
   },
   {
     "name": "RustRover",
     "productCode": "RR,PSI,PCWMP",
-    "iconClass": "icon-rr"
+    "iconClass": "icon-rr",
+    "description": "A Powerful IDE for Rust"
   }
 ]
